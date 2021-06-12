@@ -107,4 +107,4 @@ git push origin HEAD
 
 では Github の Actions タブから処理が実行している様子を見てみましょう。
 
-<img :src="$withBase('/node.png')">
+<img :src="$withBase('/template.png')">

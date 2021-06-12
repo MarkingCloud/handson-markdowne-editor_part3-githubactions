@@ -63,7 +63,7 @@ git push origin HEAD
 
 Actions のログからどこで失敗となっているのか確認しましょう。
 
-<img :src="$withBase('/node.png')">
+<img :src="$withBase('/error.png')">
 
 失敗の原因になっている一文を削除します。
 
@@ -83,7 +83,7 @@ Actions のログからどこで失敗となっているのか確認しましょ
         &#8220;NO CLOUD, NO LIFE&#8221;
         <footer>
           <small>
--           エラー原因の一文
+-           <>エラー原因の一文
             <em>&mdash;by MarkingCloudTest</em>
           </small>
         </footer>

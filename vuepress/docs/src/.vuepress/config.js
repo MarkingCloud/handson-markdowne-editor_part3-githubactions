@@ -4,7 +4,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'アプリ作成ハンズオン〜Firebase編〜',
+  title: 'アプリ作成ハンズオン〜CI/CD編〜',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -84,5 +84,5 @@ module.exports = {
     '@vuepress/plugin-medium-zoom',
   ],
   dest: 'curriculums/',
-  base: '/handson-markdowne-editor_part2-firebase/vuepress/docs/curriculums/',
+  base: '/handson-markdowne-editor_part3-githubactions/vuepress/docs/curriculums/',
 }
