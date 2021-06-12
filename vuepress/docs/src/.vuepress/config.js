@@ -44,7 +44,7 @@ module.exports = {
         collapsable: false
       },
       {
-        title: "3. Firebase とは",
+        title: "3. Github Actions とは",
         path: "/curriculum-03/",
         collapsable: false
       },
@@ -54,17 +54,17 @@ module.exports = {
         collapsable: false
       },
       {
-        title: "5. Hosting を使ってみる",
+        title: "5. テンプレートを使ってみる",
         path: "/curriculum-05/",
         collapsable: false
       },
       {
-        title: "6. nuxt/firebase を導入する",
+        title: "6. テストしてビルドする",
         path: "/curriculum-06/",
         collapsable: false
       },
       {
-        title: "7. Firestore を使ってみる",
+        title: "7. Firebase にデプロイする",
         path: "/curriculum-07/",
         collapsable: false
       },

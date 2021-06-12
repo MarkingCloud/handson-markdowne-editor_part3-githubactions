@@ -1,25 +1,25 @@
 # 2. ハンズオンのポイント
 
-## Firebase とは何か(ちょっと)分かる
+## Github Actions とは何か(ちょっと)分かる
 
-Firebaase とは何かを解説します。
+Github Actions とは何かを解説します。
 
 ちょっとだけ語れるようになります。
 
+<img :src="$withBase('/actions.png')">
+
+## ci.yml が(ちょっと)書けるようになる
+
+実際に ci.yml を記述して動きを確かめます。
+
+基本的な記法を知ることができます。
+
+<img :src="$withBase('/ciyml.png')">
+
+## Firebase へのデプロイ方法が(ちょっと)分かる
+
+Firebase にデプロイする方法を確かめます。
+
+トークンの取り扱いについても説明します。
+
 <img :src="$withBase('/firebase.png')">
-
-## Hosting へのデプロイ方法が(ちょっと)分かる
-
-Firebase のホスティング機能である Hosting 機能を使ってみます。
-
-Firebase へのデプロイの手軽さを体験してもらいます。
-
-<img :src="$withBase('/hosting.png')">
-
-## Firestore の使い方が(ちょっと)分かる
-
-Firebase の提供する DB である Cloud Firestore について解説します。
-
-また、実際にコードを記述していくつかのメソッドを使ってもらいます。
-
-<img :src="$withBase('/firestore.png')">

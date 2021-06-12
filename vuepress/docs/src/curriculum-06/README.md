@@ -1,79 +1,104 @@
-# 6. nuxt/firebase を導入する
+# 6. テストしてビルドする
 
-Firestore(Firebase の持つ DB)を利用するために SDK をインストールする必要があります。  
-[nuxt/fierbase](https://firebase.nuxtjs.org/)は nuxt に Firebase SDK を簡単に統合できるモジュールです。
+テストが失敗したパターンを確認し、ビルドまでの記述を行いましょう。
 
-<img :src="$withBase('/nuxtfirebase.png')">
+## 1. テストに失敗させてみる
 
-## 1. nuxt/firebase をインストールする
-
-nuxt/firebase をプロジェクトへインストールして使えるようにしましょう。
+CI の中身として、ESLint での簡易的なテストを実施してから、ビルドする処理を記述しましょう。
 
 次の操作を行ってください。
 
-- 次のコマンドを実行してモジュールをインストールする。
+- `.github/workflows/ci.yml` を次の通り編集する。
+  - L21 ～ L28 のコメントアウトを解除
 
-`code.6-1` _shell_
+`code.6-1` _.github/workflows/ci.yml_
+
+```yml{21-28}
+name: deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.15.0'
+
+      - name: npm install
+        run: npm install
+
+      - name: eslint
+        run: |
+          npx eslint "pages/*.vue"
+          npx eslint "components/*.vue"
+          npx eslint "store/*.js"
+
+      - name: generate
+        run: npm run generate
+
+    #   - name: deploy
+    #     run: |
+    #       npx firebase use ${{ secrets.FIREBASE_PROJECT }} --token=${{ secrets.FIREBASE_TOKEN }}
+    #       npx firebase deploy --only hosting --token=${{ secrets.FIREBASE_TOKEN }}
+```
+
+- 次のコマンドを実行する。
+
+`code.6-2` _shell_
 
 ```properties
-npm install firebase
-npm install @nuxtjs/firebase
+git add .
+git commit -m "テストに失敗させてみる"
+git push origin HEAD
 ```
 
-- `nuxt.config.js` を次の通り編集する。
-  - L50 のコメントアウトを解除
-  - L79 ～ L93 のコメントアウトを解除
+今回、余分な一文をコードに書いているため ESLint が通らず、失敗となります。
 
-`code.6-2` _nuxt.config.js_
+Actions のログからどこで失敗となっているのか確認しましょう。
 
-```js{4,7-20}
-export default {
-  modules: [
-    '@nuxtjs/dotenv',
-    '@nuxtjs/firebase', //firebase
-  ],
+<img :src="$withBase('/node.png')">
 
-    firebase: {
-    config: {
-      apiKey: process.env.API_KEY,
-      authDomain: process.env.AUTH_DOMAIN,
-      projectId: process.env.PROJECT_ID,
-      storageBucket: process.env.STORAGE_BUCKET,
-      messagingSenderId: process.env.MESSAGING_SENDER_ID,
-      appId: process.env.APP_ID,
-      measurementId: process.env.MESSAGING_SENDER_ID,
-    },
-    services: {
-      firestore: true,
-    },
-  },
-}
-```
-
-## 2. SDK の構成情報を env ファイルに書き込む
-
-SDK を利用するために必要な ID などの情報を入力します。  
-Github などに push すると問題なため、env ファイルに記述して呼び出すようにします。
+失敗の原因になっている一文を削除します。
 
 次の操作を行ってください。
 
-- Firebase コンソールから次の手順で SDK の構成情報を確認する。
-  - 歯車マーク > プロジェクトを設定 > SDK の設定と構成-構成 を選択
+- `pages/home.vue`を次の通り編集する。
+  - L9 の一文を削除
 
-<img :src="$withBase('/config.png')">
+`code.6-3` _pages/home.vue_
 
-- `.env` を次の通り編集する。
-  - 対応する値を「""」の中に記入する。
-
-`code.6-3` _.env_
-
-```json{1-6}
-API_KEY="xxxxxxxxxxxxxxxx"
-AUTH_DOMAIN="xxxxxxxx.firebaseapp.com"
-PROJECT_ID="xxxxxxxx"
-STORAGE_BUCKET="xxxxxxxx.appspot.com"
-MESSAGING_SENDER_ID="xxxxxxxx"
-APP_ID="x:xxxxxxxx:xxxxxxxx"
+```diff{9}
+<template>
+  <v-row>
+    <v-col class="text-center">
+      <img src="/markingcloud-icon.png" />
+      <blockquote class="blockquote">
+        &#8220;NO CLOUD, NO LIFE&#8221;
+        <footer>
+          <small>
+-           エラー原因の一文
+            <em>&mdash;by MarkingCloudTest</em>
+          </small>
+        </footer>
+      </blockquote>
+    </v-col>
+  </v-row>
+</template>
 ```
 
-これで nuxt/firebase の導入は完了となります。
+- 次のコマンドを実行する。
+
+`code.6-4` _shell_
+
+```properties
+git add .
+git commit -m "エラー原因の一文削除"
+git push origin HEAD
+```

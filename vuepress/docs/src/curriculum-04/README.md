@@ -1,14 +1,35 @@
 # 4. 事前準備
 
-## 1. Gitpod でコードを開く
+## 1. リポジトリを用意する
+
+利用するリポジトリを用意します。
+
+次の操作を行ってください。
+
+- [**Github**](https://github.com) に移動する。
+- Repositories > New を選択
+- Repository name へ適当な名前を入力する。
+- Public を選択する。
+- Create Repository を選択する。
+
+<img :src="$withBase('/github.png')">
+
+## 2. Gitpod でコードを開く
 
 Gitpod を開いてコードをクローンしましょう。
 
-[**Gitpod に登録する**](https://gitpod.io/login)
+次の操作を行ってください。
 
-[**Gitpod で今回のリポジトリを開く**](http://gitpod.io/#https://github.com/MarkingCloud/handson-markdowne-editor_part2-firebase)
+- [**Gitpod に登録**](https://gitpod.io/login)して、管理画面に移動する。
+- workflow への権限を許可する。
+  - setting > Integrations > \[...\] > Edit Permissions を選択。
+  - workflow にチェックを入れ、Update Permissions を選択。
+  - Authorize gitpod-io を選択し、パスワードを入力。
+- Gitpod の管理画面はこれ以上操作しないため、タブを閉じる。
 
-<img :src="$withBase('/gitpod.png')">
+<img :src="$withBase('/setting.png')">
+
+- [**Gitpod で今回のリポジトリを開く**](http://gitpod.io/#https://github.com/MarkingCloud/handson-markdowne-editor_part3-githubactions)
 
 ::: tip Gitpod とは
 
@@ -29,33 +50,36 @@ Gitpod を開いてコードをクローンしましょう。
 
 :::
 
-ディレクトリ構成は次のような構成になっています。  
-少しややこしいですが、Nuxt のルートディレクトリで `firebase init` を行っただけの状態です。  
-(今回は時短のため init 作業は省略します)
+ディレクトリ構成は次のような構成になっています。
 
-```shell{4,10,15,19}
+色々とファイルがありますが、今回利用するのは`.github/workflows/ci.yml`のみです。
+
+```shell{3-5}
 handson-markdowne-editor_part2-firebase
+├──.firebase
+├──.github
+│   └── workflows
+│       └── 'ci.yml   <----------- Github Actions の設定ファイル'
 ├── assets
 ├── components
-├── 'firebase.json   <----------- Firebase の設定ファイル'
+├── firebase.json
 ├── firestore.indexes.json
 ├── firestore.rules
 ├── layouts
 ├── middleware
 ├── node_modules
-├── 'nuxt.config.js  <----------- Nuxt の設定ファイル'
+├── nuxt.config.js
 ├── package.json
 ├── package-lock.json
 ├── pages
 ├── plugins
-├── 'public          <----------- デプロイする Build 後のファイル'
 ├── README.md
 ├── static
 ├── store
-└── '.env            <----------- 接続情報'
+└── .env
 ```
 
-## 2. Firebase プロジェクトを作成する
+## 3. Firebase プロジェクトを作成する
 
 Firebase のプロジェクトを作成しましょう。
 
@@ -66,83 +90,6 @@ Firebase のプロジェクトを作成しましょう。
 - Google アナリティクスは無効にして「プロジェクトを作成」を選択。
 
 <img :src="$withBase('/project.png')">
-
-## 3. Firebase プロジェクトを作成する
-
-作成したプロジェクトを Gitpod に紐づけます。
-
-Gitpod のコンソールから以下の操作を行ってください。
-
-- 次のコマンドを実行してアカウントでログインする。
-
-`code.4-1` _shell_
-
-```properties
-firebase login --no-localhost --reauth
-```
-
-- 出力された URL をクリックする。
-- Firebase にログインしているアカウントと同じアカウントを選択。
-- 権限を確認して許可をクリックする。
-- 出力された認証コードをコンソールに貼り付けてエンターを押下する。
-
-<img :src="$withBase('/login.gif')">
-
-- 次のコマンドで先ほど作成したプロジェクトのプロジェクト ID を確認する。
-
-`code.4-2` _shell_
-
-```properties
-firebase projects:list
-```
-
-出力
-
-```shell
-$ firebase projects:list
-
-✔ Preparing the list of your Firebase projects
-┌─────────────────────────────┬──────────────────────┬────────────────┬──────────────────────┐
-│ Project Display Name        │ Project ID           │ Project Number │ Resource Location ID │
-├─────────────────────────────┼──────────────────────┼────────────────┼──────────────────────┤
-│ test-markdown-0501          │ 'test-markdown-0501' │ xxxxxxxxxxxxx  │ asia-northeast1      │
-└─────────────────────────────┴──────────────────────┴────────────────┴──────────────────────┘
-```
-
-::: tip プロジェクト ID
-プロジェクト ID は「プロジェクトを設定」からも確認可能です。
-
-<img :src="$withBase('/id.png')">
-:::
-
-- 次のコマンドで作成したプロジェクトを設定する。
-
-`code.4-3` _shell_
-
-```properties
-firebase use <PROJECT_ID> // <PROJECT_ID>は先ほど確認したものに書き換えます
-```
-
-- 再度確認コマンドを実施し、正しいプロジェクトに (current) とついていることを確認する。
-
-`code.4-4` _shell_
-
-```properties
-firebase projects:list
-```
-
-出力
-
-```shell
-$ firebase projects:list
-
-✔ Preparing the list of your Firebase projects
-┌─────────────────────────────┬────────────────────────────────┬────────────────┬──────────────────────┐
-│ Project Display Name        │ Project ID                     │ Project Number │ Resource Location ID │
-├─────────────────────────────┼────────────────────────────────┼────────────────┼──────────────────────┤
-│ test-markdown-0501          │ test-markdown-0501 '(current)' │ xxxxxxxxxxxx   │ asia-northeast1      │
-└─────────────────────────────┴────────────────────────────────┴────────────────┴──────────────────────┘
-```
 
 ## 4. アプリを作成する
 
@@ -158,16 +105,22 @@ Firebase ではアプリという単位でリソースを管理します。
 
 <img :src="$withBase('/webapp.png')">
 
-ここまでで準備は完了です。
+## 5. リモートリポジトリを変更する
 
-## 5. Firestore を作成する
-
-コンソールから Firestore を有効化します。
+Gitpod 上から新しく作ったリポジトリへリモートリポジトリの設定を変更します。
 
 次の操作を行ってください。
 
-- Firestore > データベースの作成　を選択
-- テストモードで開始する　を選択
-- asia-northeast1 > 有効にする　を選択
+- 先ほど作成したリポジトリの URL をコピーする。
 
-<img :src="$withBase('/storeconsole.png')">
+<img :src="$withBase('/url.png')">
+
+- 次のコマンドを実行してリモートリポジトリを変更する。
+
+`code.4-1` _shell_
+
+```properties
+git remote set-url origin コピーしたURL
+```
+
+ここまでで準備は完了です。

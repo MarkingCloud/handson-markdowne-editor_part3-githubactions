@@ -16,7 +16,7 @@
 
 ::: warning Github アカウントを用意してください
 
-ハンズオンの中で開発環境として Gitpod の利用 Github アカウントが必要です。  
+ハンズオンの中で GithubAtions/Gitpod を利用するために Github アカウントが必要です。  
 アカウントを持っていない人は[**Github**](https://github.com/)からアカウントの作成を行っておいてください。
 
 :::
