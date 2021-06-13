@@ -12,7 +12,7 @@
 - Public を選択する。
 - Create Repository を選択する。
 
-<img :src="$withBase('/GitHub.png')">
+<img :src="$withBase('/github.png')">
 
 ## 2. Gitpod でコードを開く
 
