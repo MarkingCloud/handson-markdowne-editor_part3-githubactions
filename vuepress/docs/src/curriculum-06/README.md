@@ -8,10 +8,10 @@ CI の中身として、ESLint での簡易的なテストを実施してから�
 
 次の操作を行ってください。
 
-- `.github/workflows/ci.yml` を次の通り編集する。
+- `.GitHub/workflows/ci.yml` を次の通り編集する。
   - L21 ～ L28 のコメントアウトを解除
 
-`code.6-1` _.github/workflows/ci.yml_
+`code.6-1` _.GitHub/workflows/ci.yml_
 
 ```yml{21-28}
 name: deploy
@@ -63,7 +63,7 @@ git push origin HEAD
 
 Actions のログからどこで失敗となっているのか確認しましょう。
 
-<img :src="$withBase('/error.png')">
+## 2. エラー原因の一文を削除
 
 失敗の原因になっている一文を削除します。
 

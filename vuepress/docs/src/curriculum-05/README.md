@@ -1,14 +1,14 @@
 # 5. テンプレート を使ってみる
 
-Github の提供しているテンプレートを使ってみましょう。
+GitHub の提供しているテンプレートを使ってみましょう。
 
 <img :src="$withBase('/marketplace.png')">
 
 ## 1. 基本的な使い方
 
-まずは Github Actions の基本的な使い方を見てみましょう。
+まずは GitHub Actions の基本的な使い方を見てみましょう。
 
-Actions の機能は、`.github/workflows/` 配下に YAML ファイルを配置するだけで利用できます。
+Actions の機能は、`.GitHub/workflows/` 配下に YAML ファイルを配置するだけで利用できます。
 
 複数のファイルを使って並列に実行させることも可能です。 ([**こちら**](https://blog.kondoumh.com/entry/2021/01/22/133427)のブログが参考になります。)
 
@@ -18,9 +18,9 @@ YAML ファイルの中身は以下のような構成で記述します。
 name: # ワークフローの名前
 on: # トリガーするGitHubイベントの名前
 jobs: # 実行する処理
-  ジョブ名
+  ジョブ名:
     steps: # Jobが実行する処理の集合
-      各アクション
+      - 各アクション
 ```
 
 今回のハンズオンで登場するアクションは次の通り。
@@ -33,15 +33,15 @@ run: シェルによって実行されるコマンド
 
 ## 2. Marketplace とは
 
-Marketplace には Github ユーザーが作った Apps や Actions が投稿されています。
+Marketplace には GitHub ユーザーが作った Apps や Actions が投稿されています。
 
-Marketplace へは Github の管理ページ上部のタブから飛ぶことができます。
+Marketplace へは GitHub の管理ページ上部のタブから飛ぶことができます。
 
 試しに Node の環境セットアップのワークフローを見つけてみましょう。
 
 次の操作を行ってください。
 
-- Github の管理ページ > Marketplace を選択
+- GitHub の管理ページ > Marketplace を選択
 - Types で Actions を選択
 - 検索窓に「node」を打ち込みエンターで検索
 - Setup Node.js environment を選択
@@ -54,10 +54,10 @@ Setup Node.js environment の Usage に従って Node の環境構築の記述�
 
 次の操作を行ってください。
 
-- `.github/workflows/ci.yml` を次の通り編集する。
+- `.GitHub/workflows/ci.yml` を次の通り編集する。
   - L12 ～ L19 のコメントアウトを解除
 
-`code.5-1` _.github/workflows/ci.yml_
+`code.5-1` _.GitHub/workflows/ci.yml_
 
 ```yml{12-19}
 name: deploy
@@ -105,6 +105,6 @@ git commit -m "テンプレートを使ってみる"
 git push origin HEAD
 ```
 
-では Github の Actions タブから処理が実行している様子を見てみましょう。
+では GitHub の Actions タブから処理が実行している様子を見てみましょう。
 
 <img :src="$withBase('/template.png')">

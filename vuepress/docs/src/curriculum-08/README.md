@@ -1,8 +1,8 @@
 # 8. おわりに
 
-Github Actions を使って面倒なビルドやデプロイ作業を自動化することができました！
+GitHub Actions を使って面倒なビルドやデプロイ作業を自動化することができました！
 
-ここまでのハンズオンで、Nuxt × Firebase × GithubActions でアプリを構築することができましたね。
+ここまでのハンズオンで、Nuxt × Firebase × GitHubActions でアプリを構築することができましたね。
 
 大変お疲れさまでした！
 

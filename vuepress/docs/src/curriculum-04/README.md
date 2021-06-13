@@ -6,13 +6,13 @@
 
 次の操作を行ってください。
 
-- [**Github**](https://github.com) に移動する。
+- [**GitHub**](https://GitHub.com) に移動する。
 - Repositories > New を選択
 - Repository name へ適当な名前を入力する。
 - Public を選択する。
 - Create Repository を選択する。
 
-<img :src="$withBase('/github.png')">
+<img :src="$withBase('/GitHub.png')">
 
 ## 2. Gitpod でコードを開く
 
@@ -23,13 +23,15 @@ Gitpod を開いてコードをクローンしましょう。
 - [**Gitpod に登録**](https://gitpod.io/login)して、管理画面に移動する。
 - workflow への権限を許可する。
   - setting > Integrations > \[...\] > Edit Permissions を選択。
-  - workflow にチェックを入れ、Update Permissions を選択。
+  - 次の項目にチェックを入れ、Update Permissions を選択。
+    - public_repo
+    - workflow
   - Authorize gitpod-io を選択し、パスワードを入力。
 - Gitpod の管理画面はこれ以上操作しないため、タブを閉じる。
 
 <img :src="$withBase('/setting.png')">
 
-- [**Gitpod で今回のリポジトリを開く**](http://gitpod.io/#https://github.com/MarkingCloud/handson-markdowne-editor_part3-githubactions)
+- [**Gitpod で今回のリポジトリを開く**](http://gitpod.io/#https://GitHub.com/MarkingCloud/handson-markdowne-editor_part3-GitHubactions)
 
 ::: tip Gitpod とは
 
@@ -52,14 +54,14 @@ Gitpod を開いてコードをクローンしましょう。
 
 ディレクトリ構成は次のような構成になっています。
 
-色々とファイルがありますが、今回利用するのは`.github/workflows/ci.yml`のみです。
+色々とファイルがありますが、今回利用するのは`.GitHub/workflows/ci.yml`のみです。
 
 ```shell{3-5}
 handson-markdowne-editor_part2-firebase
 ├──.firebase
-├──.github
+├──.GitHub
 │   └── workflows
-│       └── 'ci.yml   <----------- Github Actions の設定ファイル'
+│       └── 'ci.yml   <----------- GitHub Actions の設定ファイル'
 ├── assets
 ├── components
 ├── firebase.json
@@ -112,6 +114,7 @@ Gitpod 上から新しく作ったリポジトリへリモートリポジトリ�
 次の操作を行ってください。
 
 - 先ほど作成したリポジトリの URL をコピーする。
+  - **HTTPS**の方をコピー
 
 <img :src="$withBase('/url.png')">
 

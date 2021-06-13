@@ -6,7 +6,7 @@
 
 <img :src="$withBase('/handson.png')">
 
-[**完成イメージ**](https://markingcloud.github.io/handson-markdowne-editor_part1-nuxt/public/)
+[**完成イメージ**](https://markingcloud.GitHub.io/handson-markdowne-editor_part1-nuxt/public/)
 
 ## What you'll learn
 
@@ -14,9 +14,9 @@
 - Hosting へのデプロイ方法が(ちょっと)分かる
 - Firestore の使い方が(ちょっと)分かる
 
-::: warning Github アカウントを用意してください
+::: warning GitHub アカウントを用意してください
 
-ハンズオンの中で GithubAtions/Gitpod を利用するために Github アカウントが必要です。  
-アカウントを持っていない人は[**Github**](https://github.com/)からアカウントの作成を行っておいてください。
+ハンズオンの中で GitHubAtions/Gitpod を利用するために GitHub アカウントが必要です。  
+アカウントを持っていない人は[**GitHub**](https://GitHub.com/)からアカウントの作成を行っておいてください。
 
 :::

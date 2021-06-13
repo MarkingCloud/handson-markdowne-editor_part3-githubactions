@@ -1,8 +1,8 @@
 # 2. ハンズオンのポイント
 
-## Github Actions とは何か(ちょっと)分かる
+## GitHub Actions とは何か(ちょっと)分かる
 
-Github Actions とは何かを解説します。
+GitHub Actions とは何かを解説します。
 
 ちょっとだけ語れるようになります。
 

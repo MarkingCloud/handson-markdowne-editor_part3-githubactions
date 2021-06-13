@@ -44,40 +44,18 @@ firebase logout トークン文字列
 
 次の操作を行ってください。
 
-- 次のコマンドで先ほど作成したプロジェクトのプロジェクト ID を確認してメモしておきます。
-
-`code.7-2` _shell_
-
-```properties
-firebase projects:list
-```
-
-出力
-
-```shell
-$ firebase projects:list
-
-✔ Preparing the list of your Firebase projects
-┌─────────────────────────────┬──────────────────────┬────────────────┬──────────────────────┐
-│ Project Display Name        │ Project ID           │ Project Number │ Resource Location ID │
-├─────────────────────────────┼──────────────────────┼────────────────┼──────────────────────┤
-│ test-markdown-0501          │ 'test-markdown-0501' │ xxxxxxxxxxxxx  │ asia-northeast1      │
-└─────────────────────────────┴──────────────────────┴────────────────┴──────────────────────┘
-```
-
-::: tip プロジェクト ID
-プロジェクト ID は「プロジェクトを設定」からも確認可能です。
+- Firebaes コンソール画面の 歯車マーク > プロジェクトを設定 を選択
+- プロジェクト ID をコピーしてメモしておく
 
 <img :src="$withBase('/id.png')">
-:::
 
-## 3. Github Secrets に登録する
+## 3. GitHub Secrets に登録する
 
-先ほどメモしたトークンとプロジェクト ID を GIthub の Secrets に登録します。
+先ほどメモしたトークンとプロジェクト ID を GitHub の Secrets に登録します。
 
 次の操作を行ってください。
 
-- Github のリポジトリ > Settings > Secrets > New repository secret を選択
+- GitHub のリポジトリ > Settings > Secrets > New repository secret を選択
 - Firebase のトークンを登録
   - Name：`FIREBASE_TOKEN`
   - Value：出力されたトークン
@@ -93,10 +71,10 @@ Firebase へデプロイする処理を記述しましょう。
 
 次の操作を行ってください。
 
-- `.github/workflows/ci.yml` を次の通り編集する。
+- `.GitHub/workflows/ci.yml` を次の通り編集する。
   - L30 ～ L33 のコメントアウトを解除
 
-`code.7-3` _.github/workflows/ci.yml_
+`code.7-3` _.GitHub/workflows/ci.yml_
 
 ```yml{30-33}
 name: deploy
