@@ -49,9 +49,17 @@ jobs:
     #       npx firebase deploy --only hosting --token=${{ secrets.FIREBASE_TOKEN }}
 ```
 
-- 次のコマンドを実行する。
+- 次のコマンドでエラーになるような分を挿入する。
 
 `code.6-2` _shell_
+
+```properties
+echo エラー原因の一文 >> store/memos.js
+```
+
+- 次のコマンドを実行する。
+
+`code.6-3` _shell_
 
 ```properties
 git add .
@@ -61,7 +69,9 @@ git push origin HEAD
 
 今回、余分な一文をコードに書いているため ESLint が通らず、失敗となります。
 
-Actions のログからどこで失敗となっているのか確認しましょう。
+コミットログからどこで失敗となっているのか確認しましょう。
+
+<img :src="$withBase('/error.png')">
 
 ## 2. エラー原因の一文を削除
 
@@ -69,33 +79,30 @@ Actions のログからどこで失敗となっているのか確認しましょ
 
 次の操作を行ってください。
 
-- `pages/home.vue`を次の通り編集する。
-  - L9 の一文を削除
+- `store/memos.js`を次の通り編集する。
+  - L124 の一文を削除
 
-`code.6-3` _pages/home.vue_
+`code.6-4` _store/memos.js_
 
-```diff{9}
-<template>
-  <v-row>
-    <v-col class="text-center">
-      <img src="/markingcloud-icon.png" />
-      <blockquote class="blockquote">
-        &#8220;NO CLOUD, NO LIFE&#8221;
-        <footer>
-          <small>
--           <>エラー原因の一文
-            <em>&mdash;by MarkingCloudTest</em>
-          </small>
-        </footer>
-      </blockquote>
-    </v-col>
-  </v-row>
-</template>
+```diff{13}
+(略)
+  // FireStoreの要素を削除する
+  async removeDB(context, removeId) {
+    await context.commit('remove', removeId)
+    const db = this.$fire.firestore.collection('markdowns').doc(removeId)
+    try {
+      db.delete()
+    } catch (e) {
+      alert(e)
+    }
+  },
+}
+- エラー原因の一文
 ```
 
 - 次のコマンドを実行する。
 
-`code.6-4` _shell_
+`code.6-5` _shell_
 
 ```properties
 git add .
