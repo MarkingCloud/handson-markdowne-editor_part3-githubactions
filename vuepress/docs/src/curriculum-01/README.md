@@ -10,9 +10,9 @@
 
 ## What you'll learn
 
-- Firebase とは何か(ちょっと)分かる
-- Hosting へのデプロイ方法が(ちょっと)分かる
-- Firestore の使い方が(ちょっと)分かる
+- GitHub Actions とは何か(ちょっと)分かる
+- YAML ファイル が(ちょっと)書けるようになる
+- Firebase へのデプロイ方法が(ちょっと)分かる
 
 ::: warning GitHub アカウントを用意してください
 

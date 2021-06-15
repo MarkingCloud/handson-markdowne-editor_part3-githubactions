@@ -21,7 +21,7 @@ Gitpod を開いてコードをクローンしましょう。
 次の操作を行ってください。
 
 - [**Gitpod に登録**](https://gitpod.io/login)して、管理画面に移動する。
-- workflow への権限を許可する。
+- 必要な権限を許可する。
   - setting > Integrations > \[...\] > Edit Permissions を選択。
   - 次の項目にチェックを入れ、Update Permissions を選択。
     - public_repo

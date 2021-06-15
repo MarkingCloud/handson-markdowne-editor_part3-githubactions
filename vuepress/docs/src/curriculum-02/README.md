@@ -8,7 +8,7 @@ GitHub Actions とは何かを解説します。
 
 <img :src="$withBase('/actions.png')">
 
-## ci.yml が(ちょっと)書けるようになる
+## YAML ファイル が(ちょっと)書けるようになる
 
 実際に ci.yml を記述して動きを確かめます。
 
