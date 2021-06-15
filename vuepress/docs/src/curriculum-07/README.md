@@ -33,7 +33,7 @@ firebase login:ci --no-localhost
 失効させたい時は次のコマンド利用します。
 
 ```properties
-firebase logout トークン文字列
+firebase logout --token トークン文字列
 ```
 
 :::
@@ -71,7 +71,7 @@ Firebase へデプロイする処理を記述しましょう。
 
 次の操作を行ってください。
 
-- `.GitHub/workflows/ci.yml` を次の通り編集する。
+- `.github/workflows/ci.yml` を次の通り編集する。
   - L30 ～ L33 のコメントアウトを解除
 
 `code.7-3` _.GitHub/workflows/ci.yml_

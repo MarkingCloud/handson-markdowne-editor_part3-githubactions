@@ -31,7 +31,7 @@ Gitpod を開いてコードをクローンしましょう。
 
 <img :src="$withBase('/setting.png')">
 
-- [**Gitpod で今回のリポジトリを開く**](http://gitpod.io/#https://GitHub.com/MarkingCloud/handson-markdowne-editor_part3-GitHubactions)
+- [**Gitpod で今回のリポジトリを開く**](http://gitpod.io/#https://github.com/MarkingCloud/handson-markdowne-editor_part3-GitHubactions)
 
 ::: tip Gitpod とは
 
@@ -54,7 +54,7 @@ Gitpod を開いてコードをクローンしましょう。
 
 ディレクトリ構成は次のような構成になっています。
 
-色々とファイルがありますが、今回利用するのは`.GitHub/workflows/ci.yml`のみです。
+色々とファイルがありますが、今回利用するのは`.github/workflows/ci.yml`のみです。
 
 ```shell{3-5}
 handson-markdowne-editor_part2-firebase

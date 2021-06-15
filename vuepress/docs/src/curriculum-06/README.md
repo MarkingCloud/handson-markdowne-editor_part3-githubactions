@@ -8,7 +8,7 @@ CI の中身として、ESLint での簡易的なテストを実施してから�
 
 次の操作を行ってください。
 
-- `.GitHub/workflows/ci.yml` を次の通り編集する。
+- `.github/workflows/ci.yml` を次の通り編集する。
   - L21 ～ L28 のコメントアウトを解除
 
 `code.6-1` _.GitHub/workflows/ci.yml_

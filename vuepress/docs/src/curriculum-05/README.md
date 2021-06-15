@@ -8,7 +8,7 @@ GitHub の提供しているテンプレートを使ってみましょう。
 
 まずは GitHub Actions の基本的な使い方を見てみましょう。
 
-Actions の機能は、`.GitHub/workflows/` 配下に YAML ファイルを配置するだけで利用できます。
+Actions の機能は、`.github/workflows/` 配下に YAML ファイルを配置するだけで利用できます。
 
 複数のファイルを使って並列に実行させることも可能です。 ([**こちら**](https://blog.kondoumh.com/entry/2021/01/22/133427)のブログが参考になります。)
 
@@ -54,7 +54,7 @@ Setup Node.js environment の Usage に従って Node の環境構築の記述�
 
 次の操作を行ってください。
 
-- `.GitHub/workflows/ci.yml` を次の通り編集する。
+- `.github/workflows/ci.yml` を次の通り編集する。
   - L12 ～ L19 のコメントアウトを解除
 
 `code.5-1` _.GitHub/workflows/ci.yml_
